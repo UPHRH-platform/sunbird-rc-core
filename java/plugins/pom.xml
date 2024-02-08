@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>plugins</artifactId>
+    <version>2.0.3</version>
+    <packaging>pom</packaging>
+
+    <parent>
+        <groupId>dev.sunbirdrc</groupId>
+        <version>2.0.3</version>
+        <artifactId>sunbird-rc</artifactId>
+    </parent>
+
+    <modules>
+        <module>divoc-external-plugin</module>
+        <module>sample-external-plugin-2</module>
+        <module>mosip-external-plugin</module>
+    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>org.sunbird.akka</groupId>
+            <artifactId>sunbird-actor</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>dev.sunbirdrc</groupId>
+            <artifactId>sunbirdrc-actors</artifactId>
+            <version>2.0.3</version>
+        </dependency>
+    </dependencies>
+
+</project>

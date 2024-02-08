@@ -1,0 +1,19 @@
+{
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "description": "Sunbird registry and credential api (SunbirdRC)",
+    "title": "Sunbird Registry and Credential",
+    "version": "1.0.0"
+  },
+  "host": "ndear.xiv.in",
+  "basePath": "/"
+}

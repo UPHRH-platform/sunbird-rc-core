@@ -1,0 +1,479 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "object",
+  "properties": {
+    "StudentForeignVerification": {
+      "$ref": "#/definitions/StudentForeignVerification"
+    }
+  },
+  "required": [
+    "StudentForeignVerification"
+  ],
+  "title": "StudentForeignVerification",
+  "definitions": {
+    "StudentForeignVerification": {
+      "$id": "#/properties/StudentForeignVerification",
+      "type": "object",
+      "title": "StudentForeignVerification",
+      "required": [
+        "name",
+        "phoneNumber",
+        "email",
+        "council"
+      ],
+      "properties": {
+        "name": {
+          "$id": "#/properties/name",
+          "type": "string",
+          "title": "Name"
+        },
+        "fathersName": {
+          "$id": "#/properties/fathersName",
+          "type": "string",
+          "title": "Father's Name"
+        },
+        "address": {
+          "$id": "#/properties/address",
+          "type": "string",
+          "title": "Address"
+        },
+        "state": { "$id": "#/properties/state", "type": "string", "title": "State","enum": [
+          "Andaman and Nicobar Islands",
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chandigarh",
+          "Chhattisgarh",
+          "Dadra and Nagar Haveli",
+          "Daman and Diu",
+          "Delhi",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jammu and Kashmir",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Ladakh",
+          "Lakshadweep",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Puducherry",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal"
+        ] },
+        "district": {"$id": "#/properties/district", "type": "string", "title": "District"},
+        "country": {"$id": "#/properties/country", "type": "string",  "title": "Country"},
+        "pincode": {"$id": "#/properties/pincode", "type": "string", "title": "Pincode"},
+        "phoneNumber": {
+          "$id": "#/properties/phoneNumber",
+          "type": "string",
+          "title": "Phone Number"
+        },
+        "email": {
+          "$id": "#/properties/email",
+          "type": "string",
+          "title": "Email"
+        },
+        "professionalQualification": {"$id": "#/properties/professionalQualification", "type": "string", "title": "Professional Qualification"},
+        "trainingCenter": {
+          "$id": "#/properties/trainingCenter",
+          "type": "string",
+          "title": "Training Center"
+        },
+        "registrationNumber": {
+          "$id": "#/properties/registrationNumber",
+          "type": "string",
+          "title": "Registration Number"
+        },
+        "registrationIssueDate": {
+          "$id": "#/properties/registrationIssueDate",
+          "type": "string",
+          "title": "Registration Issue Date"
+        },
+        "council": {
+          "$id": "#/properties/council",
+          "type": "string",
+          "title": "Council"
+        },
+        "workPlace": {
+          "$id": "#/properties/workPlace",
+          "type": "string",
+          "title": "Workplace"
+        },
+        "nurseRegDate": {
+          "$id": "#/properties/nurseRegDate",
+          "type": "string",
+          "title": "nurseRegDate"
+        },
+        "refNo": {
+          "$id": "#/properties/refNo",
+          "type": "string",
+          "title": "refNo"
+        },
+        "certificateNumber": {
+          "$id": "#/properties/certificateNumber",
+          "type": "string",
+          "title": "Certificate Number"
+        },
+        "validityOfRegistration": {
+          "$id": "#/properties/validityOfRegistration",
+          "type": "string",
+          "title": "Validity of Registration"
+        },
+        "dob": {
+          "$id": "#/properties/dob",
+          "type": "string",
+          "title": "Date of Birth"
+        },
+        "docproof": {
+          "$id": "#/properties/docproof", "type": "string", "title": "Document Proof"
+        },
+        "candidatePic": {
+          "$id": "#/properties/candidatePic",
+          "type": "string",
+          "title": "Candidate Pic"
+        },
+        "paymentStatus": {
+          "$id": "#/properties/paymentStatus",
+          "type": "string",
+          "title": "Payment Status"
+        },
+        "claimType": {"$id": "#/properties/claimType", "type": "string","title": "Claim Type"},
+        "feeReciptNo": {"$id": "#/properties/feeReciptNo", "type": "string","title": "Fee Receipt Number"},
+        "date": {"$id": "#/properties/date", "type": "string","title": "Date"},
+        "university":{"$id": "#/properties/university", "type": "string","title": "University"},
+        "validityUpto":{"$id": "#/properties/validityUpto", "type": "string","title": "Validity Upto"},
+        "maidenName":{"$id": "#/properties/maidenName", "type": "string","title": "Maiden Name"},
+        "foreignCouncilName":{"$id": "#/properties/foreignCouncilName", "type": "string","title": "Foreign Council Name"},
+        "foreignCouncilAddress":{"$id": "#/properties/foreignCouncilAddress", "type": "string","title": "Foreign Council Address"},
+        "foreignCouncilCountry":{"$id": "#/properties/foreignCouncilCountry", "type": "string","title": "Foreign Council Country"},
+        "marriedName":{"$id": "#/properties/marriedName", "type": "string","title": "Married Name"},
+        "presentAddress": {"$id": "#/properties/presentAddress", "type": "string","title": "Present Address"}
+      }
+    }
+  },
+  "_osConfig": {
+    "roles": ["StudentFromUP", "Regulator"],
+    "uniqueIndexFields": ["phoneNumber"],
+    "attestationPolicies": [
+      {
+        "name": "StudentForeignVerify",
+        "conditions": "(ATTESTOR#$.council#.contains(REQUESTER#$.council#))",
+        "type": "MANUAL",
+        "attestorPlugin": "did:internal:ClaimPluginActor?entity=Regulator",
+        "attestationProperties": {
+          "name": "$.name",
+          "fathersName": "$.fathersName",
+          "address": "$.address",
+          "phoneNumber": "$.phoneNumber",
+          "email": "$.email",
+          "trainingCenter": "$.trainingCenter",
+          "registrationNumber": "$.registrationNumber",
+          "registrationIssueDate": "$.registrationIssueDate",
+          "workPlace": "$.workPlace",
+          "council": "$.council",
+          "refNo": "$.refNo",
+          "certificateNumber": "$.certificateNumber",
+          "nurseRegDate": "$.nurseRegDate",
+          "validityOfRegistration": "$.validityOfRegistration",
+          "dob": "$.dob",
+          "docproof": "$.docproof",
+          "paymentStatus": "$.paymentStatus",
+          "claimType": "$.claimType",
+          "feeReciptNo": "$.feeReciptNo",
+          "state":"$.state",
+          "district":  "$.district",
+          "country":   "$.country",
+          "pincode":  "$.pincode",
+          "date":  "$.date",
+          "university":"$.university",
+          "validityUpto":"$.validityUpto",
+          "maidenName":"$.maidenName",
+          "foreignCouncilName":"$.foreignCouncilName",
+          "foreignCouncilAddress":"$.foreignCouncilAddress",
+          "foreignCouncilCountry":"$.foreignCouncilCountry",
+          "marriedName": "$.marriedName"
+        },
+        "credentialTemplate": {
+          "@context": [
+            "https://www.w3.org/2018/credentials/v1",
+            {
+              "@version": 1.1,
+              "@protected": true,
+              "SkillCertificate": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#SkillCertificate",
+                "@context": {
+                  "id": "@id",
+                  "@version": 1.1,
+                  "@protected": true,
+                  "skills": "schema:Text"
+                }
+              },
+              "Person": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#Person",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "trainedOn": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#trainedOn",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "fathersName": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#fathersName",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "address": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#address",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "state": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#state",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "district": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#district",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "country": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#country",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "pincode": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#pincode",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "phoneNumber": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#phoneNumber",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "email": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#email",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "trainingCenter": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#trainingCenter",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "registrationNumber": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#registrationNumber",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "registrationIssueDate": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#registrationIssueDate",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "validityOfRegistration": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#validityOfRegistration",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "council": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#council",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "dob": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#dob",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "workPlace": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#workPlace",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "refNo": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#refNo",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "certificateNumber": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#certificateNumber",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "nurseRegDate": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#nurseRegDate",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "docproof": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#docproof",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "paymentStatus": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#paymentStatus",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "claimType": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#claimType",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "feeReciptNo": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#feeReciptNo",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "date": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#date",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "university": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#university",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "validityUpto": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#validityUpto",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "maidenName": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#maidenName",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "foreignCouncilName": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#foreignCouncilName",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "foreignCouncilAddress": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#foreignCouncilAddress",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "foreignCouncilCountry": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#foreignCouncilCountry",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "marriedName": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#marriedName",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "presentAddress": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#presentAddress",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              },
+              "professionalQualification": {
+                "@id": "https://github.com/sunbird-specs/vc-specs#professionalQualification",
+                "@context": {
+                  "name": "schema:Text"
+                }
+              }
+            }
+          ],
+          "type": [
+            "VerifiableCredential"
+          ],
+          "issuanceDate": "2021-08-27T10:57:57.237Z",
+          "credentialSubject": {
+            "type": "Person",
+            "name": "{{name}}",
+            "marriedName": "{{marriedName}}",
+            "maidenName": "{{maidenName}}",
+            "foreignCouncilName": "{{foreignCouncilName}}",
+            "foreignCouncilAddress": "{{foreignCouncilAddress}}",
+            "foreignCouncilCountry": "{{foreignCouncilCountry}}",
+            "fathersName": "{{fathersName}}",
+            "presentAddress": "{{presentAddress}}",
+            "phoneNumber": "{{phoneNumber}}",
+            "email": "{{email}}",
+            "professionalQualification": "{{professionalQualification}}",
+            "trainingCenter": "{{trainingCenter}}",
+            "refNo": "{{refNo}}",
+            "certificateNumber": "{{certificateNumber}}",
+            "nurseRegDate": "{{nurseRegDate}}",
+            "registrationNumber": "{{registrationNumber}}",
+            "registrationIssueDate": "{{registrationIssueDate}}",
+            "workPlace": "{{workPlace}}",
+            "docproof": "{{docproof}}",
+            "claimType": "{{claimType}}",
+            "feeReciptNo": "{{feeReciptNo}}",
+            "state":"{{state}}",
+            "district":  "{{district}}",
+            "country":   "{{country}}",
+            "pincode":  "{{pincode}}",
+            "address":  "{{address}}",
+            "date":  "{{date}}",
+            "university":  "{{university}}",
+            "validityUpto":  "{{validityUpto}}",
+            "dob": "{{dob}}"
+          },
+          "issuer": "did:web:sunbirdrc.dev/vc/skill"
+        }
+      }
+    ],
+    "certificateTemplates": {
+      "StudentForeignVerificationTemp": "https://raw.githubusercontent.com/kumarpawantarento/templates/main/Foreign-certificate.html"
+    }
+  }
+}
+

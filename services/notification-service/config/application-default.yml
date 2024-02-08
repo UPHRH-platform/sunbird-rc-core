@@ -1,0 +1,19 @@
+kafka:
+  bootstrapServers: kafka
+  certifyTopic: certify
+  notifyTopic: notify
+  enable: true
+
+smsapi:
+  url: https://api.msg91.com/api/v2/sendsms
+  authKey: secret
+  enable: true
+  requestTemplate: '{"sender": "AppName","route": "4","country": "91","unicode": 1,"sms": [{"message": "{{.message}}","to": ["{{.to}}"]}],"DLT_TE_ID": "templateId"}'
+
+emailsmtp:
+  fromAddress: upsmf.otp@upsmfac.org
+  password: OTP22023##
+  enable: true
+
+flagr:
+  url: https://sunbirdrc.xiv.in/config
